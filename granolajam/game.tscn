@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwy4352cudym2"]
+
+[ext_resource type="Texture2D" uid="uid://dtwus6rqryv7x" path="res://icon.svg" id="1_sjkdc"]
+[ext_resource type="Script" path="res://basictower.gd" id="1_upy82"]
+[ext_resource type="Script" path="res://testmover.gd" id="1_ws422"]
+[ext_resource type="PackedScene" uid="uid://c16yogxb6h5rb" path="res://basictower.tscn" id="4_2rqw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if1wd"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_upy82")
+
+[node name="Tower" parent="." instance=ExtResource("4_2rqw2")]
+position = Vector2(671, 406)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ws422")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_if1wd")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-887, -409)
+texture = ExtResource("1_sjkdc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
